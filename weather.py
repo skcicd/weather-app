@@ -9,7 +9,7 @@ def favicon():
     return send_from_directory(app.static_folder, 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
-API_KEY = 'put your key here' 
+API_KEY = 'put_your_key_here' 
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
