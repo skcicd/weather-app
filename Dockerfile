@@ -19,11 +19,11 @@ COPY weather.py /app/weather.py
 ENV FLASK_HOST=0.0.0.0
 ENV FLASK_PORT=5000
 
-# Указываем порт, который будет использовать приложение
+# specify the port that the application will use
 EXPOSE 5000
 
-# Определяем ENTRYPOINT для запуска команды
+# define  ENTRYPOINT to run the command
 ENTRYPOINT ["python"]
 
-# Определяем команду по умолчанию для приложения
+# Define the default command for the application
 CMD ["weather.py"]
