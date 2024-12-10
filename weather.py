@@ -21,7 +21,7 @@ def home():
         if response.status_code == 200:
             weather_data = response.json()
         else:
-            weather_data = {'error': 'Город не найден'}
+            weather_data = {'error': 'City not found'}
 
     return render_template('index.html', weather_data=weather_data)
 
