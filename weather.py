@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, send_from_directory
-import requests
+import os, requests 
 
 app = Flask(__name__)
 
@@ -9,7 +9,7 @@ def favicon():
     return send_from_directory(app.static_folder, 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
-API_KEY = '6a7b6ef9f8ef66e56e652f0ced597697'  # API ключ OpenWeatherMap
+API_KEY = '6a7b6ef9f8ef66e56e652f0ced597697' 
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -26,4 +26,7 @@ def home():
     return render_template('index.html', weather_data=weather_data)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # get host and port from environment variables
+    host = os.getenv("FLASK_HOST", "0.0.0.0")
+    port = int(os.getenv("FLASK_PORT", 5000))
+    app.run(host=host, port=port)
